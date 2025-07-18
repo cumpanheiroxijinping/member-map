@@ -8,10 +8,10 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
   const tabs = [
-    { id: 'content', label: 'CONTENT', icon: BookOpen },
-    { id: 'support', label: 'SUPPORT', icon: MessageCircle },
+    { id: 'content', label: 'CONTEÚDO', icon: BookOpen },
+    { id: 'support', label: 'SUPORTE', icon: MessageCircle },
     { id: 'faq', label: 'FAQ', icon: HelpCircle },
-    { id: 'profile', label: 'PROFILE', icon: User },
+    { id: 'profile', label: 'PERFIL', icon: User },
   ];
 
   return (
@@ -20,11 +20,11 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">SD</span>
+              <span className="text-white font-bold text-lg">MB</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-800">Sugar Delete Formula</h1>
-              <p className="text-sm text-blue-600">Members Area</p>
+              <h1 className="text-xl font-bold text-gray-800">Mapa do Bitcoin</h1>
+              <p className="text-sm text-blue-600">Área de Membros</p>
             </div>
           </div>
           

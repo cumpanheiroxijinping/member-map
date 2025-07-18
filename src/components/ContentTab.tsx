@@ -5,63 +5,39 @@ import ModuleModal from './ModuleModal';
 const modules = [
   {
     id: 1,
-    title: 'The Truth About Urotrema Pancreaticum',
-    coverImage: 'https://i.ibb.co/x48bYCw/MODULO1.png',
+    title: 'Entenda o Jogo',
+    coverImage: 'https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=800',
     content: [
-      'What is the microscopic parasite',
-      'How it infects pancreatic beta cells',
-      'Why doctors don\'t talk about this',
-      'Difference between treating symptoms vs. eliminating the cause'
+      'O que é Bitcoin (sem blablablá técnico)',
+      'Por que ele valoriza',
+      'O que faz ele ser diferente do real ou dólar',
+      'Fundamentos básicos para iniciantes'
     ],
-    chapter: 'Chapter 1 of the manual'
+    chapter: 'Capítulo 1 do manual'
   },
   {
     id: 2,
-    title: 'The Japanese Discovery: Guruko Furudamu',
-    coverImage: 'https://i.ibb.co/nvY9xSW/MODULO2.png',
+    title: 'Compre do Jeito Certo',
+    coverImage: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800',
     content: [
-      'Dr. Yumi Nakamura\'s story',
-      'University of Tokyo research',
-      'The 8 sacred Japanese herbs',
-      'Mechanism of action against the parasite'
+      'Como criar conta em corretora confiável',
+      'Como transferir grana com segurança',
+      'Passo a passo pra comprar seu primeiro BTC',
+      'Dicas de segurança essenciais'
     ],
-    chapter: 'Chapter 2 of the manual'
+    chapter: 'Capítulo 2 do manual'
   },
   {
     id: 3,
-    title: 'Complete Formula Recipe',
-    coverImage: 'https://i.ibb.co/zHmjY9nG/MODULO3.png',
+    title: 'O Que Fazer Depois de Comprar',
+    coverImage: 'https://images.pexels.com/photos/8369648/pexels-photo-8369648.jpeg?auto=compress&cs=tinysrgb&w=800',
     content: [
-      'List of 8 ingredients with dosages',
-      'Where to find each herb',
-      'Step-by-step preparation method',
-      'Variations: capsules, tea and extract'
+      'Onde guardar (corretora, cold wallet, hot wallet)',
+      'Como saber o melhor momento pra vender ou segurar',
+      'Dicas pra não perder dinheiro à toa',
+      'Estratégias de longo prazo'
     ],
-    chapter: 'Chapter 3 of the manual'
-  },
-  {
-    id: 4,
-    title: '30-Day Protocol',
-    coverImage: 'https://i.ibb.co/G3HF4Jms/MODULO4.png',
-    content: [
-      'Daily schedule',
-      'Ideal timing',
-      'What to expect each week',
-      'Progress monitoring'
-    ],
-    chapter: 'Chapter 4 of the manual'
-  },
-  {
-    id: 5,
-    title: 'Eliminating Resistance and Side Effects',
-    coverImage: 'https://i.ibb.co/FbfmvkYN/MODULO5.png',
-    content: [
-      'Normal initial reactions',
-      'How to accelerate parasite elimination',
-      'Signs that it\'s working',
-      'When to seek medical guidance'
-    ],
-    chapter: 'Chapter 5 of the manual'
+    chapter: 'Capítulo 3 do manual'
   }
 ];
 
@@ -72,9 +48,9 @@ const ContentTab: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Course Content</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Conteúdo do Curso</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the secrets of the Japanese formula that is revolutionizing natural diabetes treatment
+            Descubra os segredos do Bitcoin de forma simples e prática para iniciantes
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mt-6 rounded-full" />
         </div>
@@ -95,12 +71,13 @@ const ContentTab: React.FC = () => {
               <span className="text-white text-2xl">✓</span>
             </div>
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Your Progress</h3>
-            <p className="text-gray-600 mb-6">Complete all modules to get maximum results</p>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">Seu Progresso</h3>
+            <p className="text-gray-600 mb-6">Complete todos os módulos para obter resultados máximos</p>
             
             <div className="bg-blue-50 rounded-lg p-4">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-blue-700 font-medium">Course Progress</span>
-                <span className="text-blue-700 font-bold">0/5 modules</span>
+                <span className="text-blue-700 font-medium">Progresso do Curso</span>
+                <span className="text-blue-700 font-bold">0/3 módulos</span>
               </div>
               <div className="w-full bg-blue-200 rounded-full h-3">
                 <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full transition-all duration-500" style={{ width: '0%' }} />

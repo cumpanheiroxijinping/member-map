@@ -15,11 +15,9 @@ interface ModuleModalProps {
 const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
   const handleDownloadMaterial = () => {
     const pdfLinks = {
-      1: 'https://drive.google.com/file/d/1pvArnWlZFrPbWCS6YhrcWEEut9EHYCzM/view?usp=sharing',
-      2: 'https://drive.google.com/file/d/1X66XAFFC7OVTcEVi1ItTM5TJM6qzMujW/view?usp=sharing',
-      3: 'https://drive.google.com/file/d/1_zmSwrPRimd0p7xzDG1zbgQ63_AFF0dO/view?usp=sharing',
-      4: 'https://drive.google.com/file/d/1nU8K1fVeWLWpsdd7RuRwyjdgdROXUM_I/view?usp=sharing',
-      5: 'https://drive.google.com/file/d/1Ixq4HKalygLjkmw_qA17xaaBiHZbCdD0/view?usp=sharing'
+      1: '#',
+      2: '#',
+      3: '#'
     };
 
     const pdfUrl = pdfLinks[module.id as keyof typeof pdfLinks];
@@ -50,7 +48,7 @@ const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
           </button>
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
             <span className="bg-blue-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
-              Module {module.id}
+              Módulo {module.id}
             </span>
           </div>
         </div>
@@ -61,16 +59,16 @@ const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
           <div className="flex items-center space-x-6 mb-8">
             <div className="flex items-center text-gray-600">
               <Clock size={20} className="mr-2" />
-              <span>15-20 minutes</span>
+              <span>15-20 minutos</span>
             </div>
             <div className="flex items-center text-gray-600">
               <Play size={20} className="mr-2" />
-              <span>Video + Material</span>
+              <span>Vídeo + Material</span>
             </div>
           </div>
 
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">What you'll learn:</h3>
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">O que você vai aprender:</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {module.content.map((item, index) => (
                 <div key={index} className="flex items-start bg-blue-50 rounded-lg p-4">
@@ -92,14 +90,14 @@ const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center">
               <Play size={20} className="mr-2" />
-              Watch Module
+              Assistir Módulo
             </button>
             <button 
               onClick={handleDownloadMaterial}
               className="flex-1 border-2 border-blue-500 text-blue-600 font-semibold py-4 px-6 rounded-lg hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center"
             >
               <Download size={20} className="mr-2" />
-              Download Material
+              Baixar Material
             </button>
           </div>
         </div>

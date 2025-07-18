@@ -3,32 +3,32 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const faqData = [
   {
-    question: 'Does this formula replace my medication?',
-    answer: 'No. The Sugar Delete Formula is a complementary natural protocol that does not replace prescribed medications. Always consult your doctor before making any changes to your current medication. The protocol can be used in conjunction with conventional medical treatment.'
+    question: 'Preciso de muito dinheiro para começar?',
+    answer: 'Não! Você pode começar com qualquer valor, até mesmo R$ 50. O importante é começar e aprender. O curso ensina como fazer seus primeiros investimentos de forma segura, independente do valor que você tem disponível.'
   },
   {
-    question: 'Can anyone use this protocol?',
-    answer: 'The protocol is based on natural ingredients, but it\'s important to consult a healthcare professional before starting, especially if you have pre-existing medical conditions, are pregnant, breastfeeding, or take regular medications. People with type 1 diabetes should have strict medical supervision.'
+    question: 'É seguro investir em Bitcoin?',
+    answer: 'Como qualquer investimento, Bitcoin tem riscos. Por isso o curso ensina as melhores práticas de segurança, como escolher corretoras confiáveis, como guardar seus bitcoins com segurança e como não cair em golpes. O conhecimento é sua melhor proteção.'
   },
   {
-    question: 'How long does it take to see results?',
-    answer: 'The first signs of improvement may appear in the first 2-3 weeks, with more significant results after 30 days of consistent use. Each organism responds differently, and consistency in applying the protocol is fundamental to achieving the best results.'
+    question: 'Quanto tempo leva para aprender?',
+    answer: 'O curso foi desenhado para ser concluído em poucos dias. Cada módulo tem entre 15-20 minutos. Você pode assistir no seu ritmo e revisar quantas vezes quiser. O importante é aplicar o que aprender.'
   },
   {
-    question: 'Where can I find the ingredients?',
-    answer: 'All ingredients can be found in natural product stores, compounding pharmacies, or through reliable online suppliers. In module 3, we provide a detailed list with specific guidance on where to purchase each item with guaranteed quality.'
+    question: 'Qual corretora devo usar?',
+    answer: 'No módulo 2, ensinamos como escolher corretoras confiáveis e regulamentadas no Brasil. Mostramos os critérios de segurança que você deve observar e como criar sua conta passo a passo.'
   },
   {
-    question: 'Are there side effects?',
-    answer: 'Being based on natural ingredients, side effects are rare and usually mild, such as initial digestive discomfort. In module 5, we explain in detail the possible normal initial reactions and how to minimize them. Always discontinue use and consult a doctor if adverse reactions occur.'
+    question: 'E se o Bitcoin cair depois que eu comprar?',
+    answer: 'No módulo 3, ensinamos estratégias para lidar com a volatilidade do mercado. Você aprenderá quando é melhor segurar, quando vender, e como não tomar decisões emocionais que podem prejudicar seus investimentos.'
   },
   {
-    question: 'Can I use it with my current medication?',
-    answer: 'Generally yes, but it\'s essential to consult your doctor first. Some natural ingredients may interact with diabetes medications, altering their effects. Your doctor will be able to adjust dosages as needed and monitor your progress safely.'
+    question: 'Preciso entender de tecnologia?',
+    answer: 'Não! O curso foi criado especialmente para iniciantes. Explicamos tudo de forma simples, sem termos técnicos complicados. Se você sabe usar WhatsApp, consegue seguir nosso passo a passo.'
   },
   {
-    question: 'Is there any result guarantee?',
-    answer: 'We offer a 30-day satisfaction guarantee. If you follow the protocol as directed and are not satisfied with the results, we offer a full refund. We remind you that individual results may vary and consistency is fundamental for success.'
+    question: 'Tem garantia?',
+    answer: 'Sim! Oferecemos 30 dias de garantia incondicional. Se você não ficar satisfeito com o conteúdo, devolvemos 100% do seu dinheiro, sem perguntas ou burocracias.'
   }
 ];
 
@@ -47,9 +47,9 @@ const FAQTab: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Perguntas Frequentes</h2>
           <p className="text-xl text-gray-600">
-            Get your questions answered about the Sugar Delete Formula protocol
+            Tire suas dúvidas sobre o Mapa do Bitcoin
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto mt-6 rounded-full" />
         </div>
@@ -83,15 +83,15 @@ const FAQTab: React.FC = () => {
         </div>
 
         <div className="mt-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Still have questions?</h3>
+          <h3 className="text-2xl font-bold mb-4">Ainda tem dúvidas?</h3>
           <p className="text-blue-100 mb-6">
-            Our support team is ready to help you with any additional questions
+            Nossa equipe de suporte está pronta para ajudar você com qualquer dúvida adicional
           </p>
           <button
-            onClick={() => window.open('https://wa.me/5511999999999?text=Hello, I have a question about the Sugar Delete Formula course', '_blank')}
+            onClick={() => window.open('https://wa.me/5511999999999?text=Olá, tenho uma dúvida sobre o curso Mapa do Bitcoin', '_blank')}
             className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-blue-50 transition-colors duration-200"
           >
-            Contact Support
+            Entrar em Contato
           </button>
         </div>
       </div>
