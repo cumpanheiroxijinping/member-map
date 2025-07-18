@@ -6,6 +6,13 @@ interface ModuleCardProps {
     id: number;
     title: string;
     coverImage: string;
+    lessons?: Array<{
+      id: number;
+      title: string;
+      type: string;
+      url: string;
+      duration: string;
+    }>;
     content: string[];
     chapter?: string;
   };
@@ -13,6 +20,11 @@ interface ModuleCardProps {
 }
 
 const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {
+  const totalDuration = module.lessons?.reduce((total, lesson) => {
+    const minutes = parseInt(lesson.duration.replace(' min', ''));
+    return total + minutes;
+  }, 0) || 45;
+
   return (
     <div 
       className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden transform hover:-translate-y-2"
@@ -39,7 +51,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {
           </span>
           <div className="flex items-center text-gray-500 text-sm">
             <Clock size={16} className="mr-1" />
-            <span>15-20 min</span>
+            <span>{totalDuration} min</span>
           </div>
         </div>
         
@@ -48,15 +60,36 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {
         </h3>
         
         <div className="space-y-2">
-          {module.content.slice(0, 2).map((item, index) => (
+          {module.lessons ? (
+            module.lessons.slice(0, 2).map((lesson, index) => (
+              <div key={index} className="flex items-start">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-gray-600 text-sm leading-relaxed">{lesson.title}</p>
+                  <div className="flex items-center mt-1">
+                    <span className={`text-xs px-2 py-1 rounded-full ${
+                      lesson.type === 'video' 
+                        ? 'bg-red-100 text-red-600' 
+                        : 'bg-green-100 text-green-600'
+                    }`}>
+                      {lesson.type === 'video' ? '📹 Vídeo' : '📖 eBook'}
+                    </span>
+                    <span className="text-xs text-gray-500 ml-2">{lesson.duration}</span>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            module.content.slice(0, 2).map((item, index) => (
             <div key={index} className="flex items-start">
               <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
               <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
             </div>
-          ))}
-          {module.content.length > 2 && (
+            ))
+          )}
+          {(module.lessons ? module.lessons.length > 2 : module.content.length > 2) && (
             <p className="text-blue-600 text-sm font-medium mt-3">
-              +{module.content.length - 2} tópicos adicionais
+              +{(module.lessons ? module.lessons.length : module.content.length) - 2} aulas adicionais
             </p>
           )}
         </div>
