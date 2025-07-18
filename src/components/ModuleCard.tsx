@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, ChevronRight } from 'lucide-react';
+import { Clock, ChevronRight, Play } from 'lucide-react';
 
 interface ModuleCardProps {
   module: {
@@ -17,13 +17,21 @@ interface ModuleCardProps {
     chapter?: string;
   };
   onClick: () => void;
+  onWatchVideo?: (videoUrl: string, title: string) => void;
 }
 
-const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {
+const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick, onWatchVideo }) => {
   const totalDuration = module.lessons?.reduce((total, lesson) => {
     const minutes = parseInt(lesson.duration.replace(' min', ''));
     return total + minutes;
   }, 0) || 45;
+
+  const handleQuickPlay = (e: React.MouseEvent, lesson: any) => {
+    e.stopPropagation();
+    if (lesson.type === 'video' && onWatchVideo) {
+      onWatchVideo(lesson.url, lesson.title);
+    }
+  };
 
   return (
     <div 
@@ -65,7 +73,18 @@ const ModuleCard: React.FC<ModuleCardProps> = ({ module, onClick }) => {
               <div key={index} className="flex items-start">
                 <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0" />
                 <div className="flex-1">
-                  <p className="text-gray-600 text-sm leading-relaxed">{lesson.title}</p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-gray-600 text-sm leading-relaxed flex-1">{lesson.title}</p>
+                    {lesson.type === 'video' && onWatchVideo && (
+                      <button
+                        onClick={(e) => handleQuickPlay(e, lesson)}
+                        className="ml-2 p-1 text-blue-600 hover:bg-blue-50 rounded-full transition-colors duration-200"
+                        title="Assistir agora"
+                      >
+                        <Play size={14} />
+                      </button>
+                    )}
+                  </div>
                   <div className="flex items-center mt-1">
                     <span className={`text-xs px-2 py-1 rounded-full ${
                       lesson.type === 'video' 

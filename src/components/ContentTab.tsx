@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ModuleCard from './ModuleCard';
 import ModuleModal from './ModuleModal';
+import VideoPlayer from './VideoPlayer';
 
 const modules = [
   {
@@ -109,6 +110,13 @@ const modules = [
 
 const ContentTab: React.FC = () => {
   const [selectedModule, setSelectedModule] = useState<typeof modules[0] | null>(null);
+  const [showVideoPlayer, setShowVideoPlayer] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState<{ url: string; title: string } | null>(null);
+
+  const handleWatchVideo = (videoUrl: string, title: string) => {
+    setCurrentVideo({ url: videoUrl, title });
+    setShowVideoPlayer(true);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
@@ -127,6 +135,7 @@ const ContentTab: React.FC = () => {
               key={module.id}
               module={module}
               onClick={() => setSelectedModule(module)}
+              onWatchVideo={handleWatchVideo}
             />
           ))}
         </div>
@@ -160,6 +169,17 @@ const ContentTab: React.FC = () => {
         <ModuleModal
           module={selectedModule}
           onClose={() => setSelectedModule(null)}
+        />
+      )}
+
+      {showVideoPlayer && currentVideo && (
+        <VideoPlayer
+          videoUrl={currentVideo.url}
+          title={currentVideo.title}
+          onClose={() => {
+            setShowVideoPlayer(false);
+            setCurrentVideo(null);
+          }}
         />
       )}
     </div>

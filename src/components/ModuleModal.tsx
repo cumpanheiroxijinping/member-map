@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Play, Download, Clock, BookOpen, Video } from 'lucide-react';
+import VideoPlayer from './VideoPlayer';
 
 interface ModuleModalProps {
   module: {
@@ -21,10 +22,13 @@ interface ModuleModalProps {
 
 const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
   const [selectedLesson, setSelectedLesson] = useState<number | null>(null);
+  const [showVideoPlayer, setShowVideoPlayer] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState<{ url: string; title: string } | null>(null);
 
   const handleAccessContent = (lesson: any) => {
     if (lesson.type === 'video') {
-      window.open(lesson.url, '_blank');
+      setCurrentVideo({ url: lesson.url, title: lesson.title });
+      setShowVideoPlayer(true);
     } else {
       // Convert Google Drive view link to direct download link
       const fileId = lesson.url.match(/\/d\/([a-zA-Z0-9-_]+)/)?.[1];
@@ -185,6 +189,17 @@ const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
           </div>
         </div>
       </div>
+
+      {showVideoPlayer && currentVideo && (
+        <VideoPlayer
+          videoUrl={currentVideo.url}
+          title={currentVideo.title}
+          onClose={() => {
+            setShowVideoPlayer(false);
+            setCurrentVideo(null);
+          }}
+        />
+      )}
     </div>
   );
 };
