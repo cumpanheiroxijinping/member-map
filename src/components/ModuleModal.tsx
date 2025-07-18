@@ -37,6 +37,10 @@ const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
     }
   };
 
+  const handleDownloadMaterial = () => {
+    // Add download material logic here
+  };
+
   const totalDuration = module.lessons?.reduce((total, lesson) => {
     const minutes = parseInt(lesson.duration.replace(' min', ''));
     return total + minutes;
@@ -165,26 +169,8 @@ const ModuleModal: React.FC<ModuleModalProps> = ({ module, onClose }) => {
               <span className="font-semibold">Comece agora e transforme seu conhecimento!</span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default ModuleModal;
-
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {module.chapter && (
-            <div className="bg-gray-50 rounded-lg p-4 mb-8">
-              <p className="text-gray-600 font-medium">{module.chapter}</p>
-            </div>
-          )}
-
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <button className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 flex items-center justify-center">
               <Play size={20} className="mr-2" />
               Assistir Módulo
